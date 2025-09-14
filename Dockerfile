@@ -41,6 +41,8 @@ RUN conda run -n merged_env R -e "\
 #RUN conda run -n merged_env R -e "remotes::install_github('bnprks/BPCells/r')"
 #RUN conda run -n merged_env R -e "devtools::install_github('cole-trapnell-lab/monocle3')"
 
+SHELL ["/bin/bash", "-c"]
+
 RUN source activate merged_env && \
     R -e "devtools::install_github('cole-trapnell-lab/monocle3', force = TRUE)"
 
