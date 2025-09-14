@@ -1,0 +1,36 @@
+# Max upload size
+options(shiny.maxRequestSize = 600 * 1024^2)
+suppressPackageStartupMessages(library(kableExtra))
+
+# Define server
+
+# Function to generate n distinct random colors
+generate_random_colors <- function(n) {
+  colors <- grDevices::colors()[sample(1:657, n)]
+  return(colors)
+}
+
+
+server <- function(input, output, session) {
+    source("server-inputdata.R", local = TRUE)
+
+    source("server-conditions.R", local = TRUE)
+
+    source("server-svaseq.R", local = TRUE)
+
+    source("server-runDeseq.R", local = TRUE)
+
+    source("server-analysisRes.R", local = TRUE)
+    source("server-venndiagram.R", local = TRUE)
+    source("server-volcanoplot.R", local = TRUE)
+
+    source("server-boxplot.R", local = TRUE)
+
+    source("server-heatmap.R", local = TRUE)
+
+    GotoTab <- function(name) {
+        shinyjs::show(selector = paste0("a[data-value=\"", name, "\"]"))
+
+        shinyjs::runjs("window.scrollTo(0, 0)")
+    }
+}
