@@ -55,7 +55,7 @@ RUN mamba clean -a -y
 COPY monocle3 /srv/shiny-server/monocle3
 
 # # Copy BSgenome package
-# COPY BSgenome.Hsapiens.UCSC.hg19_1.4.3.tar.gz /
+COPY BSgenome.Hsapiens.UCSC.hg19_1.4.3.tar.gz /
 
 # Copy configuration files
 COPY nginx.conf /etc/nginx/nginx.conf
